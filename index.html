@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | ConfiSafe</title>
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> -->
+
+  <!-- CSS globais -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <!-- Partes compartilhadas -->
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+
+  <!-- CSS específico da HOME -->
+  <link rel="stylesheet" href="css/pages/home.css">
+</head>
+<body class="page-home">
+
+  <header class="navbar">
+    <div class="logo">
+      <span class="conf">Confi</span><span class="safe">Safe</span>
+    </div>
+    <nav class="menu">
+      <a href="#servicos">Serviços</a>
+      <a href="pages/contato.html">Contato</a>
+      <a href="pages/login.html" class="btn-login">Login</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero" style="background-image: url('assets/img/confin_servicos.jpg');">
+      <h1>Solução Inteligente para Espaços Confinados</h1>
+      <p>Reduza acidentes e garanta conformidade com a NR-33 através do monitoramento automatizado de EPIs e controle de acesso     em tempo real.</p>
+      <a href="pages/login.html" class="cta-button">Acessar o Sistema</a>
+    </section>
+    
+    <section class="carrossel" id="servicos">
+      <div class="slider">
+        <div class="slides">
+          <!-- Buttons -->
+          <input type="radio" name="radio-btn" id="radio1">
+          <input type="radio" name="radio-btn" id="radio2">
+          <input type="radio" name="radio-btn" id="radio3">
+          <input type="radio" name="radio-btn" id="radio4">
+          
+          <!-- Slide 1 -->
+          <div class="slide first">
+            <div class="slide-content">
+              <div class="slide-text">
+                <h2>Controle Inteligente de Acesso</h2>
+                <p>
+                  Acompanhe quem entra e sai dos espaços confinados com crachás RFID ou reconhecimento biométrico,
+                  garantindo rastreabilidade e conformidade com a NR-33.
+                </p>
+              </div>
+              <div class="slide-image">
+                <img src="assets/img/ControleInteligentedeAcesso.png" alt="Controle de acesso">
+              </div>
+            </div>
+          </div>
+          
+          <!-- Slide 2 -->
+          <div class="slide">
+            <div class="slide-content">
+              <div class="slide-text">
+                <h2>Monitoramento em Tempo Real</h2>
+                <p>
+                  Visualize as condições dos espaços confinados em tempo real, com alertas automáticos de segurança
+                  e acompanhamento contínuo das operações.
+                </p>
+              </div>
+              <div class="slide-image">
+                <img src="assets/img/MonitoramentoEmTempoReal.jpg" alt="Monitoramento">
+              </div>
+            </div>
+          </div>
+          
+          <!-- Slide 3 -->
+          <div class="slide">
+            <div class="slide-content">
+              <div class="slide-text">
+                <h2>Gestão de EPIs Inteligente</h2>
+                <p>
+                  Controle a entrega, validade e devolução de EPIs automaticamente, reduzindo desperdícios e
+                  aumentando a conformidade com as normas.
+                </p>
+              </div>
+              <div class="slide-image">
+                <img src="assets/img/GestãodeEPIsInteligente.png" alt="Gestão de EPIs">
+              </div>
+            </div>
+          </div>
+          
+          <!-- Slide 4 -->
+          <div class="slide">
+            <div class="slide-content">
+              <div class="slide-text">
+                <h2>Relatórios Automatizados</h2>
+                <p>
+                  Gere relatórios completos com indicadores de segurança, rastreabilidade e conformidade em poucos
+                  cliques.
+                </p>
+              </div>
+              <div class="slide-image">
+                <img src="assets/img/RelatóriosAutomatizados.jpg" alt="Relatórios">
+              </div>
+            </div>
+          </div>
+          
+          <!-- Navegação automática -->
+          <div class="navigation-auto">
+            <div class="auto-btn1"></div>
+            <div class="auto-btn2"></div>
+            <div class="auto-btn3"></div>
+            <div class="auto-btn4"></div>
+          </div>
+        </div>
+        
+        <!-- Navegação manual -->
+        <div class="manual-navigation">
+          <label for="radio1" class="manual-btn"></label>
+          <label for="radio2" class="manual-btn"></label>
+          <label for="radio3" class="manual-btn"></label>
+          <label for="radio4" class="manual-btn"></label>
+        </div>
+      </div>
+    </section>
+    
+    
+    <section class="problem-section">
+      <h2 class="section-title">O Problema: Espaços Confinados</h2>
+      <div class="problem-grid">
+        <div class="problem-card">
+          <i class="fas fa-exclamation-triangle"></i>
+          <h3>Alto Risco de Acidentes</h3>
+          <p>Acesso restrito e ventilação deficiente aumentam significativamente o perigo para os trabalhadores.</p>
+        </div>
+        <div class="problem-card">
+          <i class="fas fa-hard-hat"></i>
+          <h3>Falhas no Uso de EPIs</h3>
+          <p>Grande número de acidentes causados pela não utilização ou uso incorreto dos Equipamentos de Proteção Individual.</p>
+        </div>
+        <div class="problem-card">
+          <i class="fas fa-door-closed"></i>
+          <h3>Falta de Controle de Acesso</h3>
+          <p>Ausência de sistemas que gerenciem a entrada e saída de funcionários de forma segura e rastreável.</p>
+        </div>
+        <div class="problem-card">
+          <i class="fas fa-wind"></i>
+          <h3>Monitoramento Ambiental Deficiente</h3>
+          <p>Inexistência de monitoramento em tempo real de gases perigosos (O₂, CH₄, H₂S) e condições atmosféricas.</p>
+        </div>
+        <div class="problem-card">
+          <i class="fas fa-gavel"></i>
+          <h3>Não Conformidade com a NR-33</h3>
+          <p>Empresas não cumprem as normas de segurança, o que leva a penalidades jurídicas e multas significativas.</p>
+        </div>
+        <div class="problem-card">
+          <i class="fas fa-file-alt"></i>
+          <h3>Processos Manuais</h3>
+          <p>Gestão de segurança feita de forma manual, dificultando o rastreamento e a geração de relatórios.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+    
+    <footer>
+      <p>&copy; 2025 ConfiSafe - Todos os direitos reservados.</p>
+    </footer>
+    
+  <script src="js/carrossel.js"></script>
+</body>
+</html>

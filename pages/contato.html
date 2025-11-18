@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contato | ConfiSafe</title>
+
+    <!-- CSS globais -->
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+
+  <!-- partes compartilhadas -->
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/footer.css">
+
+  <!-- CSS específico desta página -->
+  <link rel="stylesheet" href="../css/pages/contato.css">
+
+</head>
+<body class="page-contato">
+  
+  <header class="navbar">
+    <div class="logo">
+      <span class="conf">Confi</span><span class="safe">Safe</span>
+    </div>
+    <nav class="menu">
+      <a href="../index.html">Serviços</a>
+      <a href="contato.html">Contato</a>
+      <a href="login.html" class="btn-login">Login</a>
+    </nav>
+  </header>
+
+
+  <main class="contato-container">
+    <div class="contato-content"> 
+        
+      <h1>Fale Conosco</h1>
+      
+      <p class="introducao subtitle">Preencha o formulário abaixo ou utilize um de nossos canais diretos. Sua opinião é importante para nós.</p>
+        
+      <div class="grid-contato">
+        <div class="info-contato">
+          <h2>Entre em Contato</h2>
+          <div class="info-item">
+            <label>E-mail Profissional:</label>
+            <p><a href="mailto:contatoconfisafe@gmail.com">contatoconfisafe@gmail.com</a></p>
+          </div>
+          <div class="info-item">
+            <label>Telefone / WhatsApp:</label>
+            <p><a href="tel:+5511999999999">(11) 99999-9999</a> (<a href="https://wa.me/5511999999999" target="_blank">WhatsApp</a>)</p>
+          </div>
+          <div class="info-item">
+            <label>Horário de Atendimento:</label>
+            <p>Segunda a Sexta, das 9h às 18h.</p>
+          </div>
+          
+          <div class="info-item redes-sociais">
+              <label>Siga-nos nas Redes:</label>
+              <p>
+                <a href="#"><span class="safe">Facebook</span></a> | 
+                <a href="#"><span class="safe">Instagram</span></a> | 
+                <a href="#"><span class="safe">LinkedIn</span></a>
+              </p>
+          </div>
+          
+          <!-- <div class="info-item">
+              <p>Dúvidas comuns? <a href="pages/faq.html">Consulte nosso FAQ</a>.</p>
+          </div> -->
+        </div>
+        <div class="formulario login-box"> 
+          <h2>Envie sua Mensagem</h2>
+          <p class="subtitle">Descreva sua solicitação e entraremos em contato.</p>
+          <br>
+          <form action="mailto:contatoconfisafe@gmail.com?subject=Contato via Formulário do Site" method="GET" enctype="text/plain">
+            <label for="nome">Nome Completo</label>
+            <input type="text" id="nome" name="Nome" autocomplete="name" placeholder="Seu nome" required>
+
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="Email" autocomplete="email" placeholder="seu.email@exemplo.com" required> 
+
+            <label for="motivo">Motivo do Contato</label>
+            <select id="motivo" name="Motivo" class="input-form" required> 
+                <option value="">Selecione um motivo...</option>
+                <option value="Suporte">Suporte Técnico</option>
+                <option value="Comercial">Informações Comerciais/Orçamento</option>
+                <option value="Sugestao">Sugestão/Feedback</option>
+                <option value="Outros">Outros</option>
+            </select>
+
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="Mensagem" placeholder="Sua mensagem detalhada..." required></textarea>
+
+            <button type="submit">Enviar Solicitação</button>
+          </form>
+        </div>
+      </div>
+      
+    </div>
+  </main>
+    
+    <footer>
+        <p>© 2025 ConfiSafe - Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="../js/contato.js"></script>
+
+</body>
+</html>

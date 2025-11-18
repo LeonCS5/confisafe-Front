@@ -1,0 +1,22 @@
+/* =========================
+   FOOTER GLOBAL (footer.css)
+   ========================= */
+footer {
+  background: var(--white);
+  padding: 1.25rem 2rem;
+  text-align: center;
+  color: var(--text-dark);
+  font-size: 0.9rem;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow-sm);
+}
+
+/* FOOTER DO PAINEL */
+.footer {
+  background: var(--white);
+  padding: 1.25rem 2rem;
+  text-align: center;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
+  font-size: 0.9rem;
+  color: var(--text-light);
+}

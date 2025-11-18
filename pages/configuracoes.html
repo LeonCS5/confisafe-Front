@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ConfiSafe - Configurações do Sistema">
+  
+  <title>Configurações | ConfiSafe</title>
+  
+      <!-- CSS globais -->
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/sidebar.css">
+
+  <!-- partes compartilhadas -->
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/footer.css">
+
+  <!-- CSS específico desta página -->
+  <link rel="stylesheet" href="../css/pages/configuracoes.css">
+
+  <!-- sidebar user -->
+  <script src="../js/sidebar.js" defer></script>
+  
+</head>
+<body class="page-configuracoes">
+
+  <!-- HEADER -->
+  <header class="navbar">
+    <h1 class="logo">
+      <a href="../pages/inicial.html">
+        <span class="conf">Confi</span><span class="safe">Safe</span>
+      </a>
+    </h1>
+    
+    <nav class="menu">
+      <a href="../pages/inicial.html">Início</a>
+      <a href="../pages/configuracoes.html" class="active">Configurações</a>
+      <button class="btn-logout" id="logoutBtn">Sair</button>
+    </nav>
+
+    <!-- Mobile Toggle -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      
+      <!-- User Info -->
+      <div class="user-info">
+        <img src="../assets/img/perfilimg.webp" alt="Foto de perfil" class="user-avatar" id="avatarSidebar">
+        <h2 class="user-name" id="userName">Michael Coutinho</h2>
+        <p class="user-role"  id="userRole">Técnico de Segurança</p>
+      </div>
+
+      <!-- Menu -->
+      <nav class="sidebar-nav">
+        <a href="../pages/inicial.html" class="nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          </svg>
+          <span>Painel Inicial</span>
+        </a>
+
+        <a href="../pages/controle-acesso.html" class="nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          <span>Controle de Acesso</span>
+        </a>
+
+        <a href="../pages/epis.html" class="nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"></path>
+          </svg>
+          <span>Monitoramento EPIs</span>
+        </a>
+
+         <a href="../pages/gestao-epis.html" class="nav-link ">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+          </svg>
+          <span>Gestão de EPIs</span>
+        </a>
+
+
+        <a href="../pages/treinamento.html" class="nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+          <span>Treinamentos</span>
+        </a>
+
+        <a href="../pages/relatorio.html" class="nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="20" x2="18" y2="10"></line>
+            <line x1="12" y1="20" x2="12" y2="4"></line>
+            <line x1="6" y1="20" x2="6" y2="14"></line>
+          </svg>
+          <span>Relatórios</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      
+      <!-- Page Header -->
+      <div class="page-header">
+        <div>
+          <h2>Configurações do Sistema</h2>
+          <p>Personalize suas preferências e gerencie sua conta</p>
+        </div>
+      </div>
+
+            <!-- Tabs -->
+      <div class="tabs-section">
+        <div class="tabs-header">
+          <button class="tab-btn active" data-tab="perfil">Perfil</button>
+          <button class="tab-btn" data-tab="notificacoes">Notificações</button>
+          <button class="tab-btn" data-tab="seguranca">Segurança</button>
+          <button class="tab-btn" data-tab="sistema">Sistema</button>
+        </div>
+
+        <!-- Tab: Perfil -->
+        <div class="tab-content active" id="perfil-tab">
+          <div class="config-section">
+            <h3 class="section-title">Informações Pessoais</h3>
+            
+            <form class="config-form" id="profileForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="fullName">Nome Completo</label>
+                  <input type="text" id="fullName" value="Michael Coutinho" required>
+                </div>
+                
+                <div class="form-group">
+                  <label for="email">E-mail</label>
+                  <input type="email" id="email" value="michael.coutinho@confisafe.com" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="role">Cargo</label>
+                  <input type="text" id="role" value="Técnico de Segurança" readonly>
+                </div>
+                
+                <div class="form-group">
+                  <label for="department">Departamento</label>
+                  <select id="department">
+                    <option value="seguranca" selected>Segurança do Trabalho</option>
+                    <option value="producao">Produção</option>
+                    <option value="manutencao">Manutenção</option>
+                    <option value="administrativo">Administrativo</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="phone">Telefone</label>
+                  <input type="tel" id="phone" value="(11) 98765-4321" placeholder="(00) 00000-0000" maxlength="15">
+                </div>
+                
+                <div class="form-group">
+                  <label for="ramal">Ramal</label>
+                  <input type="text" id="ramal" value="2345" placeholder="0000">
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" class="btn-secondary" onclick="resetForm()">Cancelar</button>
+                <button type="submit" class="btn-primary">Salvar Alterações</button>
+                <button type="button" class="btn-warning" onclick="abrirAlteracaoSenha()" title="Alterar sua senha">🔐 Alterar Senha</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="config-section">
+            <h3 class="section-title">Foto de Perfil</h3>
+            
+            <div class="avatar-upload">
+              <img src="../assets/img/perfilimg.webp" alt="Avatar" class="avatar-preview" id="avatarPreview">
+              <div class="avatar-actions">
+                <label for="avatarInput" class="btn-secondary">
+                  <!-- ícone -->
+                  Escolher Imagem
+                </label>
+                <input type="file" id="avatarInput" accept="image/*" style="display: none;" onchange="previewAvatar(event)">
+                <button type="button" class="btn-danger" onclick="removeAvatar()">Remover</button>
+              </div>
+              <p class="avatar-hint">PNG, JPG ou JPEG. Máximo 2MB.</p>
+            </div>
+          
+            <input type="hidden" id="fotoPerfil" name="fotoPerfil">
+          </div>
+        </div> <!-- fim tab Perfil -->
+
+        <!-- Tab: Notificações -->
+        <div class="tab-content" id="notificacoes-tab">
+          <div class="config-section">
+            <h3 class="section-title">Preferências de Notificação</h3>
+
+            <!-- Grupo: E-mail -->
+            <div class="notification-group">
+              <h4>E-mail</h4>
+
+              <div class="notification-item">
+                <div class="notification-info">
+                  <strong>Alertas de Segurança</strong>
+                  <p>Receber notificações sobre alertas críticos de EPIs e acessos</p>
+                </div>
+                <label class="toggle">
+                  <input type="checkbox" id="emailAlertas" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+
+              <div class="notification-item">
+                <div class="notification-info">
+                  <strong>Relatórios Semanais</strong>
+                  <p>Resumo semanal das atividades e conformidade</p>
+                </div>
+                <label class="toggle">
+                  <input type="checkbox" id="emailRelatorios" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+
+              <div class="notification-item">
+                <div class="notification-info">
+                  <strong>Vencimento de Treinamentos</strong>
+                  <p>Avisos sobre certificados próximos do vencimento</p>
+                </div>
+                <label class="toggle">
+                  <input type="checkbox" id="emailTreinamentos" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Grupo: Sistema -->
+            <div class="notification-group">
+              <h4>Sistema</h4>
+            
+              <div class="notification-item">
+                <div class="notification-info">
+                  <strong>Notificações Push</strong>
+                  <p>Alertas em tempo real no navegador</p>
+                </div>
+                <label class="toggle">
+                  <input type="checkbox" id="pushNotifications" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+
+              <div class="notification-item">
+                <div class="notification-info">
+                  <strong>Sons de Alerta</strong>
+                  <p>Reproduzir som ao receber notificações importantes</p>
+                </div>
+                <label class="toggle">
+                  <input type="checkbox" id="soundAlerts">
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn-primary" onclick="saveNotifications()">Salvar Preferências</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab: Segurança -->
+        <div class="tab-content" id="seguranca-tab">
+          <div class="config-section">
+            <h3 class="section-title">Alterar Senha</h3>
+            
+            <form class="config-form" id="passwordForm">
+              <div class="form-group">
+                <label for="currentPassword">Senha Atual</label>
+                <input type="password" id="currentPassword" placeholder="Digite sua senha atual" required>
+              </div>
+
+              <div class="form-group">
+                <label for="newPassword">Nova Senha</label>
+                <input type="password" id="newPassword" placeholder="Digite a nova senha" required>
+                <small>Mínimo 8 caracteres, incluindo letras e números</small>
+              </div>
+
+              <div class="form-group">
+                <label for="confirmPassword">Confirmar Nova Senha</label>
+                <input type="password" id="confirmPassword" placeholder="Confirme a nova senha" required>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn-primary">Alterar Senha</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="config-section">
+            <h3 class="section-title">Sessões Ativas</h3>
+            
+            <div class="sessions-list">
+              <div class="session-item">
+                <div class="session-icon">💻</div>
+                <div class="session-info">
+                  <strong>Navegador Atual</strong>
+                  <p>Chrome 120 - Windows 10</p>
+                  <small>Campinas, SP • Agora</small>
+                </div>
+                <span class="session-badge">Ativa</span>
+              </div>
+
+              <div class="session-item">
+                <div class="session-icon">📱</div>
+                <div class="session-info">
+                  <strong>Dispositivo Móvel</strong>
+                  <p>Safari - iPhone 13</p>
+                  <small>Campinas, SP • Há 2 horas</small>
+                </div>
+                <button class="btn-danger btn-small" onclick="revokeSession(1)">Encerrar</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="config-section">
+            <h3 class="section-title">Autenticação em Dois Fatores</h3>
+            
+            <div class="security-feature">
+              <div class="feature-info">
+                <strong>2FA não ativado</strong>
+                <p>Adicione uma camada extra de segurança à sua conta</p>
+              </div>
+              <button class="btn-secondary" onclick="enable2FA()">Ativar 2FA</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab: Sistema -->
+        <div class="tab-content" id="sistema-tab">
+          <div class="config-section">
+            <h3 class="section-title">Preferências de Exibição</h3>
+            
+            <div class="system-options">
+              <div class="system-item">
+                <div class="system-info">
+                  <strong>Tema</strong>
+                  <p>Escolha o tema da interface</p>
+                </div>
+                <select id="themeSelect" class="system-select">
+                  <option value="light" selected>Claro</option>
+                  <option value="dark">Escuro</option>
+                  <option value="auto">Automático</option>
+                </select>
+              </div>
+
+              <div class="system-item">
+                <div class="system-info">
+                  <strong>Idioma</strong>
+                  <p>Idioma do sistema</p>
+                </div>
+                <select id="languageSelect" class="system-select">
+                  <option value="pt-BR" selected>Português (Brasil)</option>
+                  <option value="en-US">English (US)</option>
+                  <option value="es-ES">Español</option>
+                </select>
+              </div>
+
+              <div class="system-item">
+                <div class="system-info">
+                  <strong>Fuso Horário</strong>
+                  <p>Ajuste automático de horários</p>
+                </div>
+                <select id="timezoneSelect" class="system-select">
+                  <option value="America/Sao_Paulo" selected>Brasília (GMT-3)</option>
+                  <option value="America/New_York">Nova York (GMT-5)</option>
+                  <option value="Europe/London">Londres (GMT+0)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn-primary" onclick="saveSystemPreferences()">Salvar Alterações</button>
+            </div>
+          </div>
+
+          <div class="config-section">
+            <h3 class="section-title">Exportação de Dados</h3>
+            
+            <div class="export-options">
+              <div class="export-item">
+                <div class="export-info">
+                  <strong>Exportar Dados Pessoais</strong>
+                  <p>Baixe uma cópia de todos os seus dados</p>
+                </div>
+                <button class="btn-secondary" onclick="exportData()">Exportar</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="config-section danger-zone">
+            <h3 class="section-title">Zona de Perigo</h3>
+            
+            <div class="danger-item">
+              <div class="danger-info">
+                <strong>Desativar Conta</strong>
+                <p>Desative temporariamente sua conta. Você poderá reativá-la a qualquer momento.</p>
+              </div>
+              <button class="btn-danger" onclick="deactivateAccount()">Desativar</button>
+            </div>
+
+            <div class="danger-item">
+              <div class="danger-info">
+                <strong>Excluir Conta</strong>
+                <p>Exclua permanentemente sua conta e todos os dados associados. Esta ação não pode ser desfeita.</p>
+              </div>
+              <button class="btn-danger" onclick="deleteAccount()">Excluir Permanentemente</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>&copy; 2025 ConfiSafe - Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="../js/configuracoes.js"></script>
+</body>
+</html>

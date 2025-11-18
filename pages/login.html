@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | ConfiSafe</title>
+      <!-- CSS globais -->
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+
+  <!-- partes compartilhadas -->
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/footer.css">
+
+  <!-- CSS específico desta página -->
+  <link rel="stylesheet" href="../css/pages/login.css">
+</head>
+<body class="page-login">
+
+  <header class="navbar">
+    <div class="logo">
+      <span class="conf">Confi</span><span class="safe">Safe</span>
+    </div>
+    <nav class="menu">
+      <a href="../index.html">Serviços</a>
+      <a href="contato.html">Contato</a>
+      <a href="login.html" class="btn-login">Login</a>
+    </nav>
+  </header>
+
+  <main class="login-container">
+    <div class="login-box">
+      <h2><span class="conf">Confi</span><span class="safe">Safe</span></h2>
+      <p class="subtitle">Acesso ao Sistema de Monitoramento de EPIs</p>
+
+      <form id="login-form" novalidate>
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email"
+               autocomplete="email" placeholder="Digite seu e-mail" required />
+      
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha"
+               autocomplete="current-password" placeholder="Digite sua senha" required />
+      
+        <button type="submit" id="btn-login">Entrar</button>
+      </form>
+      
+      <p id="login-message" style="margin-top:12px;"></p>
+
+      <p class="register-text">
+        Ainda não tem conta? <a href="../pages/cadastro.html">Cadastre-se</a>
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ConfiSafe - Todos os direitos reservados.</p>
+  </footer>
+
+      <script src="../js/login.js"></script>
+</body>
+</html>

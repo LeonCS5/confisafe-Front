@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ConfiSafe - Relatórios de Segurança">
+  
+  <title>Relatórios | ConfiSafe</title>
+  
+        <!-- CSS globais -->
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/sidebar.css">
+
+  <!-- partes compartilhadas -->
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/footer.css">
+
+  <!-- CSS específico desta página -->
+  <link rel="stylesheet" href="../css/pages/relatorio.css">
+
+  <!-- sidebar user -->
+  <script src="../js/sidebar.js" defer></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="page-relatorio">
+
+  <!-- HEADER -->
+  <header class="navbar">
+    <h1 class="logo">
+      <a href="../pages/inicial.html">
+        <span class="conf">Confi</span><span class="safe">Safe</span>
+      </a>
+    </h1>
+    
+    <nav class="menu">
+      <a href="../pages/inicial.html">Início</a>
+      <a href="../pages/configuracoes.html">Configurações</a>
+      <button class="btn-logout" id="logoutBtn">Sair</button>
+    </nav>
+
+    <!-- Mobile Toggle -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      
+      <!-- User Info -->
+      <div class="user-info">
+        <img src="../assets/img/perfilimg.webp" alt="Foto de perfil" class="user-avatar">
+        <h2 class="user-name" id="userName">Michael Coutinho</h2>
+        <p class="user-role"  id="userRole">Técnico de Segurança</p>
+      </div>
+
+      <!-- Menu -->
+      <nav class="sidebar-nav">
+        <a href="../pages/inicial.html" class="nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          </svg>
+          <span>Painel Inicial</span>
+        </a>
+
+        <a href="../pages/controle-acesso.html" class="nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          <span>Controle de Acesso</span>
+        </a>
+
+        <a href="../pages/epis.html" class="nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"></path>
+          </svg>
+          <span>Monitoramento EPIs</span>
+        </a>
+
+       <a href="../pages/gestao-epis.html" class="nav-link ">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+          </svg>
+          <span>Gestão de EPIs</span>
+        </a>
+
+
+        <a href="../pages/treinamento.html" class="nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+          <span>Treinamentos</span>
+        </a>
+
+        <a href="../pages/relatorio.html" class="nav-link active">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="20" x2="18" y2="10"></line>
+            <line x1="12" y1="20" x2="12" y2="4"></line>
+            <line x1="6" y1="20" x2="6" y2="14"></line>
+          </svg>
+          <span>Relatórios</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      
+      <!-- Page Header -->
+      <div class="page-header">
+        <div>
+          <h2>Relatórios de Segurança</h2>
+          <p>Acompanhe métricas, conformidade e KPIs do sistema</p>
+        </div>
+        <div class="header-actions">
+          <select class="period-select">
+            <option value="7">Últimos 7 dias</option>
+            <option value="30" selected>Últimos 30 dias</option>
+            <option value="90">Últimos 90 dias</option>
+            <option value="365">Último ano</option>
+          </select>
+          <button class="btn-primary" onclick="exportReport()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Exportar PDF
+          </button>
+        </div>
+      </div>
+
+      <!-- KPI Cards -->
+      <div class="kpi-grid">
+        <div class="kpi-card" onclick="openModal('epi')">
+          <div class="kpi-header"> 
+            <div class="kpi-icon kpi-icon--blue">📊</div>
+            <span class="kpi-trend trend-up">+5%</span>
+          </div>
+          <h3>Conformidade com EPI</h3>
+          <div class="kpi-value">92%</div>
+          <p class="kpi-label">Meta: 95%</p>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 92%"></div>
+          </div>
+        </div>
+
+        <div class="kpi-card" onclick="openModal('excecoes')">
+          <div class="kpi-header">
+            <div class="kpi-icon kpi-icon--orange">⚠️</div>
+            <span class="kpi-trend trend-down">-12%</span>
+          </div>
+          <h3>Exceções Registradas</h3>
+          <div class="kpi-value">5</div>
+          <p class="kpi-label">2 críticas, 3 resolvidas</p>
+          <div class="progress-bar">
+            <div class="progress-fill progress-fill--warning" style="width: 40%"></div>
+          </div>
+        </div>
+
+        <div class="kpi-card" onclick="openModal('atividade')">
+          <div class="kpi-header">
+            <div class="kpi-icon kpi-icon--green">👥</div>
+            <span class="kpi-trend trend-up">+8%</span>
+          </div>
+          <h3>Usuários Ativos</h3>
+          <div class="kpi-value">156</div>
+          <p class="kpi-label">18 ativos hoje</p>
+          <div class="progress-bar">
+            <div class="progress-fill progress-fill--success" style="width: 78%"></div>
+          </div>
+        </div>
+
+        <div class="kpi-card" onclick="openModal('incidentes')">
+          <div class="kpi-header">
+            <div class="kpi-icon kpi-icon--red">🚨</div>
+            <span class="kpi-trend trend-down">-25%</span>
+          </div>
+          <h3>Incidentes</h3>
+          <div class="kpi-value">3</div>
+          <p class="kpi-label">1 grave, 2 resolvidos</p>
+          <div class="progress-bar">
+            <div class="progress-fill progress-fill--danger" style="width: 33%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Section -->
+      <div class="charts-section">
+        <div class="chart-card">
+          <div class="chart-header">
+            <h3>Conformidade Semanal</h3>
+            <div class="chart-legend">
+              <span class="legend-item">
+                <span class="legend-dot legend-dot--blue"></span>
+                Conformidade (%)
+              </span>
+            </div>
+          </div>
+          <canvas id="weeklyChart"></canvas>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-header">
+            <h3>Distribuição por Área</h3>
+            <div class="chart-legend">
+              <span class="legend-item">
+                <span class="legend-dot legend-dot--green"></span>
+                Conforme
+              </span>
+              <span class="legend-item">
+                <span class="legend-dot legend-dot--orange"></span>
+                Não Conforme
+              </span>
+            </div>
+          </div>
+          <canvas id="areaChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Detailed Reports -->
+      <div class="reports-section">
+        <h3 class="section-title">Relatórios Detalhados</h3>
+        
+        <div class="reports-grid">
+          <div class="report-card" onclick="openModal('epi')">
+            <div class="report-icon">📋</div>
+            <div class="report-content">
+              <h4>Relatório de EPIs</h4>
+              <p>Análise completa de conformidade e uso</p>
+              <div class="report-meta">
+                <span>Última atualização: Hoje, 15:30</span>
+              </div>
+            </div>
+            <svg class="report-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </div>
+
+          <div class="report-card" onclick="openModal('excecoes')">
+            <div class="report-icon">⚠️</div>
+            <div class="report-content">
+              <h4>Relatório de Exceções</h4>
+              <p>Casos de não conformidade e falhas</p>
+              <div class="report-meta">
+                <span>Última atualização: Hoje, 14:20</span>
+              </div>
+            </div>
+            <svg class="report-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </div>
+
+          <div class="report-card" onclick="openModal('atividade')">
+            <div class="report-icon">📈</div>
+            <div class="report-content">
+              <h4>Atividade de Usuários</h4>
+              <p>Monitoramento de acessos e padrões</p>
+              <div class="report-meta">
+                <span>Última atualização: Hoje, 16:00</span>
+              </div>
+            </div>
+            <svg class="report-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </div>
+
+          <div class="report-card" onclick="openModal('incidentes')">
+            <div class="report-icon">🚨</div>
+            <div class="report-content">
+              <h4>Relatório de Incidentes</h4>
+              <p>Registro e acompanhamento de ocorrências</p>
+              <div class="report-meta">
+                <span>Última atualização: Hoje, 13:45</span>
+              </div>
+            </div>
+            <svg class="report-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Performance Metrics -->
+      <div class="metrics-section">
+        <h3 class="section-title">Métricas de Performance</h3>
+        
+        <div class="metrics-grid">
+          <div class="metric-item">
+            <div class="metric-label">Taxa de Conformidade Média</div>
+            <div class="metric-bar">
+              <div class="metric-bar-fill" style="width: 92%">92%</div>
+            </div>
+          </div>
+
+          <div class="metric-item">
+            <div class="metric-label">Incidentes Resolvidos</div>
+            <div class="metric-bar">
+              <div class="metric-bar-fill metric-bar-fill--success" style="width: 75%">75%</div>
+            </div>
+          </div>
+
+          <div class="metric-item">
+            <div class="metric-label">Treinamentos Concluídos</div>
+            <div class="metric-bar">
+              <div class="metric-bar-fill metric-bar-fill--success" style="width: 100%">100%</div>
+            </div>
+          </div>
+
+          <div class="metric-item">
+            <div class="metric-label">Equipamentos Aprovados</div>
+            <div class="metric-bar">
+              <div class="metric-bar-fill" style="width: 88%">88%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>&copy; 2025 ConfiSafe - Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal" id="reportModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle">Título do Relatório</h3>
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <!-- Conteúdo carregado via JS -->
+      </div>
+      <div class="modal-footer">
+        <textarea id="modalNotes" placeholder="Digite observações sobre este relatório..." rows="4"></textarea>
+        <button class="btn-primary" onclick="saveNotes()">Salvar Observações</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/relatorio.js"></script>
+</body>
+</html>

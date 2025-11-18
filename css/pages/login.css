@@ -1,0 +1,80 @@
+/* ===== TELA DE LOGIN ===== */
+main.login-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.login-box {
+  background-color: var(--white);
+  padding: 40px 50px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+}
+
+.login-box h2 {
+  margin-bottom: 5px;
+  font-size: 1.8rem;
+}
+
+.login-box .safe {
+  color: var(--primary-light);
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 25px;
+}
+
+.login-box label {
+  display: block;
+  text-align: left;
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: var(--text-dark);
+}
+
+.login-box input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--primary-light);
+  color: var(--white);
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.login-box button:hover {
+  background-color: var(--primary-dark);
+}
+
+.register-text {
+  margin-top: 15px;
+  font-size: 0.9rem;
+}
+
+.register-text a {
+  color: var(--primary-light);
+  text-decoration: none;
+}
+
+.register-text a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,124 @@
+/* ===== HEADER (NAVBAR) ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  height: var(--navbar-height);
+  background: var(--white);
+  box-shadow: var(--shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  z-index: 100;
+}
+
+/* Logo */
+.logo {
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.logo .conf { 
+  color: var(--primary-dark); 
+}
+
+.logo .safe { 
+  color: var(--primary-light); 
+}
+
+/* Menu de Navegação */
+.menu {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.menu a:not(.btn-login) {
+  color: var(--text);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.menu a:not(.btn-login):hover,
+.menu a:not(.btn-login).active {
+  background: #f0f0f0;
+  color: var(--primary-dark);
+}
+
+
+.btn-login{
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.2s;
+}
+
+.btn-login:hover {
+  background: var(--primary-dark);
+}
+
+/* Botão de Logout */
+.btn-logout {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.2s;
+}
+
+.btn-logout:hover {
+  background: var(--primary-dark);
+}
+
+/* Menu Toggle (Mobile) */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.menu-toggle span {
+  width: 24px;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* RESPONSIVO DO HEADER */
+@media (max-width: 768px) {
+  /* Esconder texto dos links do menu superior */
+  .menu a span {
+    display: none;
+  }
+
+  /* Mostrar menu toggle */
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+/* Mobile pequeno */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0 1rem;
+  }
+  
+  .logo a {
+    font-size: 1.25rem;
+  }
+}

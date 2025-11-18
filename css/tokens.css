@@ -1,0 +1,49 @@
+/* =========================
+   TOKENS GLOBAIS (tokens.css)
+   ========================= */
+:root {
+  /* === Cores principais (brand) === */
+  --primary: #166cc7;
+  --primary-dark: #0a3d7e;
+  --primary-light: #1e90ff;   
+
+  /* Aliases (compatibilidade com código antigo) */
+  --primary-blue: #166cc7;
+  --dark-blue: #0a3d7e;
+  --light-blue: #1e90ff;  
+
+  /* === Cores de estado === */
+  --success: #28a745;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --info: #17a2b8;    
+
+  /* === Neutros / fundo / texto === */
+  --text-dark: #333;
+  --text: var(--text-dark);   /* uso geral */
+  --text-muted: #555;
+  --text-light: #666;
+
+  --bg: #f5f7fa;
+  --background: #f4f7fb;      /* alternativa de fundo */
+  --white: #ffffff;
+  --border: #e0e0e0;
+
+  /* Gradientes */
+  --body-gradient: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+
+  /* === Layout === */
+  --navbar-height: 64px;
+  --sidebar-width: 250px;
+  --border-radius: 12px;  
+
+  /* === Sombras === */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.10);
+  --shadow:    0 3px 10px rgba(0, 0, 0, 0.10);
+  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.15); 
+
+  /* === Animação === */
+  --transition: all 0.3s ease;
+}
+

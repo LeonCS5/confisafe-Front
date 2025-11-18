@@ -1,0 +1,43 @@
+/* =========================
+   RESET BÁSICO
+   ========================= */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+   CONFIGURAÇÃO GERAL
+   ========================= */
+body {
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--body-gradient);
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+
+/* body de quem esta logado */
+.page-configuracoes,
+.page-controle-acesso,
+.page-epis,
+.page-gestao-epis,
+.page-inicial,
+.page-relatorio,
+.page-treinamento{
+    background: var(--bg);
+}
+
+/* Links básicos */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Imagens responsivas básicas */
+img {
+  max-width: 100%;
+  display: block;
+}

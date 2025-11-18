@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro | Confisafe</title>
+  
+    <!-- CSS globais -->
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+
+  <!-- partes compartilhadas -->
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/footer.css">
+
+  <!-- CSS específico desta página -->
+  <link rel="stylesheet" href="../css/pages/cadastro.css">
+  <style>
+    /* body {
+      
+      background-image:  
+                        url('../assets/img/camera_segurança.jpg');
+    } */
+  </style>
+</head>
+<body class="page-cadastro">
+  
+  <header class="navbar">
+    <div class="logo">
+      <span class="conf">Confi</span><span class="safe">Safe</span>
+    </div>
+    <nav class="menu">
+      <a href="../index.html">Início</a>
+      <a href="contato.html">Contato</a>
+      <a href="login.html" class="btn-login">Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="register-card">
+      <div class="card-header">
+        <h1>Cadastro Empresarial</h1>
+        <p>Crie sua conta e comece o período de teste gratuito</p>
+      </div>
+
+      <form id="registerForm">
+        
+        <!-- Empresa -->
+        <div class="form-section">
+          <h3>🏢 Dados da Empresa</h3>
+          
+          <div class="input-group">
+            <label>Razão Social *</label>
+            <input type="text" id="razaoSocial" required placeholder="Nome completo da empresa">
+          </div>
+
+          <div class="input-group">
+            <label>CNPJ *</label>
+            <input type="text" id="cnpj" required placeholder="00.000.000/0000-00" maxlength="18">
+          </div>
+
+          <div class="input-group">
+            <label>E-mail Corporativo *</label>
+            <input type="email" id="emailCorporativo" required placeholder="contato@empresa.com.br">
+          </div>
+
+          <div class="input-group">
+            <label>Telefone *</label>
+            <input type="tel" id="telefone" required placeholder="(00) 00000-0000" maxlength="15">
+          </div>
+        </div>
+
+        <!-- Responsável -->
+        <div class="form-section">
+          <h3>👤 Responsável</h3>
+          
+          <div class="input-group">
+            <label>Nome Completo *</label>
+            <input type="text" id="nomeResponsavel" required placeholder="Seu nome">
+          </div>
+
+          <div class="input-group">
+            <label>CPF *</label>
+            <input type="text" id="cpf" required placeholder="000.000.000-00" maxlength="14">
+          </div>
+
+          <div class="input-group">
+            <label>Cargo *</label>
+            <input type="text" id="cargo" required placeholder="Ex: Gerente de Segurança">
+          </div>
+
+          <div class="input-group">
+            <label>Departamento</label>
+            <select id="departamento">
+              <option value="seguranca" selected>Segurança do Trabalho</option>
+              <option value="producao">Produção</option>
+              <option value="manutencao">Manutenção</option>
+              <option value="administrativo">Administrativo</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label>Ramal</label>
+            <input type="text" id="ramal" placeholder="0000">
+          </div>
+        </div>
+
+        <!-- Senha -->
+        <div class="form-section">
+          <h3>🔐 Senha de Acesso</h3>
+          
+          <div class="input-group">
+            <label>Senha *</label>
+            <input type="password" id="senha" required placeholder="Mínimo 8 caracteres">
+            <small>Use letras, números e símbolos</small>
+          </div>
+
+          <div class="input-group">
+            <label>Confirmar Senha *</label>
+            <input type="password" id="confirmarSenha" required placeholder="Digite a senha novamente">
+          </div>
+        </div>
+
+        <!-- Termos -->
+        <div class="checkbox-group">
+          <label>
+            <input type="checkbox" id="termos" required>
+            <span>Aceito os <a href="#">Termos de Uso</a> e <a href="#">Política de Privacidade</a></span>
+          </label>
+        </div>
+
+        <button type="submit" class="submit-btn">Criar Conta Gratuita</button>
+
+        <p class="login-link">
+          Já tem conta? <a href="login.html">Entre aqui</a>
+        </p>
+      </form>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <script src="../js/cadastro.js"></script>
+</body>
+</html>
