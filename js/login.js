@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Redireciona depois de um pequeno delay
     setTimeout(() => {
-      window.location.href = "/pages/inicial.html"; // ajuste o caminho se precisar
+      window.location.href = "inicial.html"; // ajuste o caminho se precisar
     }, 600);
   });
 });
