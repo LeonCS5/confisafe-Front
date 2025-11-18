@@ -3,53 +3,35 @@ document.addEventListener("DOMContentLoaded", () => {
   const msg  = document.getElementById("login-message");
   const btn  = document.getElementById("btn-login");
 
-  form.addEventListener("submit", async (e) => {
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const email = document.getElementById("email").value.trim();
     const senha = document.getElementById("senha").value.trim();
 
+    // Validação básica: campos obrigatórios
     if (!email || !senha) {
       msg.textContent = "Por favor, preencha todos os campos!";
       msg.style.color = "crimson";
       return;
     }
 
+    // Aqui NÃO chama mais backend, é só um mock para página estática
     btn.disabled = true;
     btn.textContent = "Entrando...";
 
+    // Mensagem "fake" de sucesso
+    msg.textContent = "Login realizado com sucesso! (modo estático)";
+    msg.style.color = "green";
+
+    // Guarda o e-mail na sessão (opcional, mas mantive igual ao seu)
     try {
-      const resp = await fetch("/api/auth/login", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({ email, senha })
-      });
+      sessionStorage.setItem("confisafe_logged_email", email);
+    } catch (_) {}
 
-      let data = {};
-      try { data = await resp.json(); } catch (_) {}
-
-      if (resp.ok && data.autenticado) {
-        msg.textContent = data.mensagem || "Login realizado com sucesso!";
-        msg.style.color = "green";
-
-        // redireciona após pequeno delay
-        // salva e-mail logado na sessão para uso em outras páginas
-        try { sessionStorage.setItem('confisafe_logged_email', email); } catch (_) {}
-
-        setTimeout(() => {
-          window.location.href = "/pages/inicial.html"; // ajuste o caminho se precisar
-        }, 600);
-      } else {
-        msg.textContent = (data && data.mensagem) || "E-mail ou senha inválidos.";
-        msg.style.color = "crimson";
-      }
-    } catch (err) {
-      console.error(err);
-      msg.textContent = "Erro ao conectar com o servidor.";
-      msg.style.color = "crimson";
-    } finally {
-      btn.disabled = false;
-      btn.textContent = "Entrar";
-    }
+    // Redireciona depois de um pequeno delay
+    setTimeout(() => {
+      window.location.href = "/pages/inicial.html"; // ajuste o caminho se precisar
+    }, 600);
   });
 });
