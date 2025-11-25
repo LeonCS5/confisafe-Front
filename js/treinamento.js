@@ -6,6 +6,43 @@
 (function() {
   'use strict';
 
+  // ===== FUNÇÃO PARA BUSCAR NO BANCO DE DADOS =====
+  async function carregarTreinamentosDoBackend() {
+  try {
+    const response = await fetch("/api/treinamentos");
+    const dados = await response.json();
+
+    // Converter o formato do banco para o formato da tabela
+    trainings = dados.map(t => ({
+      id: t.id,
+      employeeName: t.nomeFuncionario,
+      employeeFunction: t.cargo,
+      course: t.curso,
+      completionDate: formatDateBackend(t.dataConclusao),
+      expiryDate: formatDateBackend(t.validade),
+      status: traduzirStatus(t.status)
+    }));
+
+    updateTable();
+    } catch (error) {
+      console.error("Erro ao carregar treinamentos:", error);
+    }
+  }
+
+  function formatDateBackend(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleDateString("pt-BR");
+  }
+
+  function traduzirStatus(status) {
+    switch (status) {
+      case "VALIDO": return "Válido";
+      case "VENCE_EM_BREVE": return "Vencendo";
+      case "VENCIDO": return "Vencido";
+      default: return status;
+    }
+  }
+
   // ===== ELEMENTOS DO DOM =====
   const menuToggle = document.getElementById('menuToggle');
   const sidebar = document.getElementById('sidebar');
@@ -18,54 +55,54 @@
 
   // ===== DADOS DE TREINAMENTOS (simulando banco de dados) =====
   let trainings = [
-    {
-      id: 1,
-      employeeId: 1,
-      employeeName: 'João Silva',
-      employeeFunction: 'Operador de Máquinas',
-      course: 'NR-33 Trabalhador Autorizado',
-      completionDate: '15/08/2024',
-      expiryDate: '14/08/2025',
-      instructor: 'Eng. Roberto Silva',
-      certificateNumber: 'NR33-2024-001',
-      status: 'Válido'
-    },
-    {
-      id: 2,
-      employeeId: 2,
-      employeeName: 'Maria Santos',
-      employeeFunction: 'Técnica de Laboratório',
-      course: 'NR-33 Vigias',
-      completionDate: '10/11/2023',
-      expiryDate: '09/11/2024',
-      instructor: 'Téc. Ana Paula',
-      certificateNumber: 'NR33-2023-042',
-      status: 'Vencendo'
-    },
-    {
-      id: 3,
-      employeeId: 3,
-      employeeName: 'Carlos Oliveira',
-      employeeFunction: 'Auxiliar de Manutenção',
-      course: 'NR-33 Supervisor de Entrada',
-      completionDate: '20/09/2023',
-      expiryDate: '19/09/2024',
-      instructor: 'Eng. Carlos Mendes',
-      certificateNumber: 'NR33-2023-028',
-      status: 'Vencido'
-    },
-    {
-      id: 4,
-      employeeId: 4,
-      employeeName: 'Ana Costa',
-      employeeFunction: 'Supervisora',
-      course: 'NR-33 Supervisor de Entrada',
-      completionDate: '05/06/2024',
-      expiryDate: '04/06/2025',
-      instructor: 'Eng. Carlos Mendes',
-      certificateNumber: 'NR33-2024-015',
-      status: 'Válido'
-    }
+    // {
+    //   id: 1,
+    //   employeeId: 1,
+    //   employeeName: 'João Silva',
+    //   employeeFunction: 'Operador de Máquinas',
+    //   course: 'NR-33 Trabalhador Autorizado',
+    //   completionDate: '15/08/2024',
+    //   expiryDate: '14/08/2025',
+    //   instructor: 'Eng. Roberto Silva',
+    //   certificateNumber: 'NR33-2024-001',
+    //   status: 'Válido'
+    // },
+    // {
+    //   id: 2,
+    //   employeeId: 2,
+    //   employeeName: 'Maria Santos',
+    //   employeeFunction: 'Técnica de Laboratório',
+    //   course: 'NR-33 Vigias',
+    //   completionDate: '10/11/2023',
+    //   expiryDate: '09/11/2024',
+    //   instructor: 'Téc. Ana Paula',
+    //   certificateNumber: 'NR33-2023-042',
+    //   status: 'Vencendo'
+    // },
+    // {
+    //   id: 3,
+    //   employeeId: 3,
+    //   employeeName: 'Carlos Oliveira',
+    //   employeeFunction: 'Auxiliar de Manutenção',
+    //   course: 'NR-33 Supervisor de Entrada',
+    //   completionDate: '20/09/2023',
+    //   expiryDate: '19/09/2024',
+    //   instructor: 'Eng. Carlos Mendes',
+    //   certificateNumber: 'NR33-2023-028',
+    //   status: 'Vencido'
+    // },
+    // {
+    //   id: 4,
+    //   employeeId: 4,
+    //   employeeName: 'Ana Costa',
+    //   employeeFunction: 'Supervisora',
+    //   course: 'NR-33 Supervisor de Entrada',
+    //   completionDate: '05/06/2024',
+    //   expiryDate: '04/06/2025',
+    //   instructor: 'Eng. Carlos Mendes',
+    //   certificateNumber: 'NR33-2024-015',
+    //   status: 'Válido'
+    // }
   ];
 
   let nextId = 5;
@@ -161,7 +198,16 @@
         <td>${training.expiryDate}</td>
         <td><span class="badge ${badgeClass}">${statusText}</span></td>
         <td>
-          <div class="action-btns">
+        <div class="action-btns">
+            <button class="btn-icon btn-icon-danger" title="Excluir" onclick="deleteTraining(${training.id})">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="3 6 5 6 21 6"></polyline>
+                <path d="M19 6l-1 14H6L5 6"></path>
+                <path d="M10 11v6"></path>
+                <path d="M14 11v6"></path>
+                <path d="M9 6V4h6v2"></path>
+              </svg>
+            </button>
             <button class="btn-icon" title="Ver certificado" onclick="viewCertificate(${training.id})">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -176,22 +222,22 @@
                 </svg>
               </button>
               <button class="btn-icon btn-icon-danger" title="Bloquear acesso" onclick="blockAccess(${training.id})">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line>
-                </svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line>
+              </svg>
               </button>
             ` : `
-              <button class="btn-icon btn-icon-warning" title="Agendar reciclagem" onclick="scheduleRecycling(${training.id})">
+            <button class="btn-icon btn-icon-warning" title="Agendar reciclagem" onclick="scheduleRecycling(${training.id})">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                  <line x1="16" y1="2" x2="16" y2="6"></line>
-                  <line x1="8" y1="2" x2="8" y2="6"></line>
-                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
                 </svg>
-              </button>
-            `}
-          </div>
+                </button>
+                `}
+                </div>
         </td>
       `;
 
@@ -214,8 +260,11 @@
   }
 
   // ===== INICIALIZAÇÃO =====
-  updateTable();
-  console.log('✅ Treinamentos NR-33 carregado');
+  // updateTable();
+  // console.log('✅ Treinamentos NR-33 carregado');
+  carregarTreinamentosDoBackend();
+  console.log('✅ Treinamentos carregados do backend');
+
 
   // ===== EXPORTAR FUNÇÕES PARA GLOBAL =====
   window.trainings = trainings;
@@ -226,7 +275,22 @@
 })();
 
 // ===== FUNÇÕES GLOBAIS =====
+function deleteTraining(id) {
+  const training = window.trainings.find(t => t.id === id);
+  if (!training) return;
 
+  if (confirm(`Tem certeza que deseja excluir o treinamento de:\n\n${training.employeeName}\nCurso: ${training.course}\n\nEsta ação não pode ser desfeita.`)) {
+
+    // Remove do array
+    window.trainings = window.trainings.filter(t => t.id !== id);
+
+    // Atualiza tabela
+    window.updateTable();
+
+    // Notificação
+    showNotification('🗑️ Treinamento excluído com sucesso!', 'success');
+  }
+}
 function openAddTrainingModal() {
   const modal = document.getElementById('trainingModal');
   const form = document.getElementById('trainingForm');
@@ -529,3 +593,25 @@ style.textContent = `
   }
 `;
 document.head.appendChild(style);
+
+// FNÇÃO DELETAR
+function deleteTraining(id) {
+  if (!confirm("Deseja realmente excluir este treinamento?")) return;
+
+  fetch(`http://localhost:8080/treinamentos/${id}`, {
+    method: 'DELETE'
+  })
+  .then(response => {
+    if (response.ok) {
+      alert("Treinamento excluído com sucesso!");
+
+      // Remove a linha correspondente
+      const row = document.querySelector(`#trainingsTableBody button[onclick='deleteTraining(${id})']`).closest('tr');
+      if (row) row.remove();
+    } else {
+      alert("Erro ao excluir. Verifique o console.");
+      console.error("Status:", response.status);
+    }
+  })
+  .catch(error => console.error("Erro na requisição:", error));
+}

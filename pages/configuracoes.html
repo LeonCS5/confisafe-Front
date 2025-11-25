@@ -94,6 +94,14 @@
           <span>Gestão de EPIs</span>
         </a>
 
+        <a href="../pages/funcionarios.html" class="nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M7 21v-2a4 4 0 0 1 3-3.87"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Funcionários</span>
+        </a>
 
         <a href="../pages/treinamento.html" class="nav-link">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -172,7 +180,14 @@
               <div class="form-row">
                 <div class="form-group">
                   <label for="phone">Telefone</label>
-                  <input type="tel" id="phone" value="(11) 98765-4321" placeholder="(00) 00000-0000" maxlength="15">
+                  <input 
+                  type="tel" 
+                  id="phone" 
+                  value="(11) 98765-4321" 
+                  placeholder="(00) 00000-0000" 
+                  maxlength="15"
+                  inputmode="numeric"
+                  autocomplete="off">
                 </div>
                 
                 <div class="form-group">
@@ -439,7 +454,7 @@
 
   <!-- FOOTER -->
   <footer class="footer">
-    <p>&copy; 2025 ConfiSafe - Todos os direitos reservados.</p>
+    <p>&copy; 2025 ConfiSafe - Todos os direitos reservados..</p>
   </footer>
 
   <script src="../js/configuracoes.js"></script>

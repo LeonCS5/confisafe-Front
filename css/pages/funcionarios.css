@@ -1,0 +1,176 @@
+/* =========================
+   PÁGINA: FUNCIONÁRIOS
+   ========================= */
+
+body.page-funcionarios {
+  background: var(--bg);
+}
+
+
+/* Header da página */
+.page-funcionarios .page-header {
+  margin-bottom: 1.5rem;
+}
+
+.page-funcionarios .page-header h2 {
+  font-size: 1.5rem;
+  color: var(--primary-dark);
+  margin-bottom: 0.25rem;
+}
+
+.page-funcionarios .page-header p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* Header da seção "Lista de Funcionários" */
+
+.page-funcionarios .section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.page-funcionarios .section-title {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--primary-dark);
+}
+
+/* Stats / cards de resumo */
+.page-funcionarios .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Modal genérico para CRUD de Funcionário */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  padding: 1rem;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  max-width: 720px;
+  width: 100%;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  animation: modalFadeIn 0.2s ease-out;
+}
+
+.modal-header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.modal-close {
+  border: none;
+  background: transparent;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: var(--transition);
+}
+
+.modal-close:hover {
+  color: var(--primary-dark);
+}
+
+.modal-form {
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+
+/* Grid do formulário */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.form-group input,
+.form-group select {
+  padding: 0.5rem 0.6rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font-size: 0.9rem;
+  outline: none;
+  background: var(--white);
+  color: var(--text);
+  transition: var(--transition);
+}
+
+.form-group input::placeholder,
+.form-group select::placeholder {
+  color: var(--text-light);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 1px rgba(22, 108, 199, 0.1);
+}
+
+/* Botões do modal */
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+/* Animação do modal */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .modal-content {
+    max-width: 100%;
+  }
+}

@@ -26,7 +26,8 @@ body {
 .page-gestao-epis,
 .page-inicial,
 .page-relatorio,
-.page-treinamento{
+.page-funcionarios,
+.page-treinamento{  
     background: var(--bg);
 }
 

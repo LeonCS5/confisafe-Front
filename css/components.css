@@ -1,0 +1,181 @@
+/* =========================
+   DATA TABLES (CRUD GENÉRICO)
+   ========================= */
+
+.table-wrapper {
+  margin-top: 1rem;
+  background: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 1.25rem 1.5rem;
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+  font-size: 0.9rem;
+}
+
+.data-table thead {
+  background: var(--bg);
+}
+
+.data-table thead th {
+  text-align: left;
+  padding: 0.75rem 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-bottom: 2px solid var(--border);
+  white-space: nowrap;
+}
+
+.data-table tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.data-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.data-table tbody td {
+  padding: 0.7rem 0.75rem;
+  color: var(--text);
+  vertical-align: middle;
+}
+
+/* Hover / foco visual */
+.data-table tbody tr:hover {
+  background: var(--background);
+}
+
+/* Última coluna (ações) alinhada à direita */
+.data-table td:last-child,
+.data-table th:last-child {
+  text-align: right;
+}
+
+/* Botões de ação pequenos para CRUD */
+.action-btns {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.35rem;
+}
+
+.btn-icon {
+  border: none;
+  background: transparent;
+  padding: 0.25rem;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.btn-icon:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.btn-icon-danger {
+  color: var(--danger);
+}
+
+.btn-icon-warning {
+  color: var(--warning);
+}
+
+/* Avatar + célula de funcionário reutilizável em CRUDs */
+.employee-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.employee-cell strong {
+  display: block;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.employee-cell span {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--background);
+  color: var(--text-dark);
+}
+
+.avatar-blue {
+  background: var(--primary-light);
+  color: var(--white);
+}
+
+/* ===== BOTÕES PADRÃO (USO GLOBAL) ===== */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background: var(--white);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-secondary:hover {
+  background: #f8f9fa;
+}
+
+/* Select de filtro reaproveitável */
+.filter-select {
+  padding: 0.625rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background: var(--white);
+  cursor: pointer;
+  outline: none;
+}
+
+.filter-select:focus {
+  border-color: var(--primary);
+}
