@@ -1,2 +1,2 @@
 # confisafe-Front
-pagina estatica do projeot confisafe, sem back end
+pagina estatica do projeto confisafe, sem back end
